@@ -1,0 +1,22 @@
+.head-title{color:#f15a24;}
+.nopadding{padding:0px;}
+.navbar-brand{line-height: 15px;}
+.btn-primary.focus, .btn-primary:focus{outline: 0;}
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.btn-primary.dropdown-toggle.focus, .open>.btn-primary.dropdown-toggle:focus, .open>.btn-primary.dropdown-toggle:hover{outline:0;border-color: #e77e8f;}
+.panel-heading.panel-main-menus{padding: 0px;}
+.panel-main-menus>.nav-pills>li>a{border-radius:0px;}
+.panel-default>.panel-heading.panel-main-menus{border-color: rgba(255, 103, 55, 0.32);}
+.panel-main-menus>.nav-pills>li+li{margin-left: 0px;}
+.sell-form textarea{resize: none;min-height: 200px;}
+.sell-form.form-horizontal .control-label{text-align: left;}
+input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;}
+input[type=number] {-moz-appearance:textfield;}
+input[type=date]::-webkit-outer-spin-button,input[type=date]::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;}
+input[type=date] {-moz-appearance:textfield;}
+.badge.badge-default{background-color:#ff8d37;}
+.panel-default>.panel-heading .badge{background-color: #ff6737;}
+.nav>li>a:focus, .nav>li>a:hover{background-color: rgba(255, 103, 55, 0.14);}
+.notification{position: absolute;display: block;bottom: 0;right: 0;background-color: rgba(0,0,0,0.5);height: 50px;width: 100px;}
+#body{min-height: 500px}
+.badge.badge-danger{background-color:#ff5555;}
+#pointer{cursor: pointer;}
