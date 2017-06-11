@@ -22,6 +22,19 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    <style type="text/css">
+        @if(Route::currentRouteName() == 'home')
+            .navbar{
+                margin-bottom: 0px;
+                background-color: transparent;
+                border-color: transparent;
+            }
+            #app{
+                background-image: url(./img/header.jpg);background-size: cover;background-blend-mode: overlay;background-color: rgba(0, 0, 0, 0.73);
+                height: 100vh;
+            }
+        @endif
+    </style>
 </head>
 <body>
     <div id="app">
@@ -37,10 +50,12 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
+                    {{-- Branding Image --}}
+                    @if(Route::currentRouteName() != 'home')
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <div class="col-xs-3 nopadding"><img src="{{asset('img/Icon.png')}}" class="img-responsive" style="height: 30px;"/></div><div class="col-xs-9 head-title nopadding">{{ config('app.name', 'Auction') }}&nbsp;&nbsp;<small style="font-size:14px;">Sell & &nbsp;<span style="padding-left: 25px;">Buy</span></small></div>
                     </a>
+                    @endif
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -53,8 +68,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}" {!! (Route::currentRouteName() == 'home')?'class="up-button"':null !!}>Login</a></li>
+                            <li><a href="{{ route('register') }}" {!! (Route::currentRouteName() == 'home')?'class="up-button"':null !!}>Register</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -91,7 +106,9 @@
         </nav>
 
         @yield('content')
-        <div class="footer text-center">{{date('Y',time())}}</div>
+        @if(Route::currentRouteName() != 'home')
+            <div class="footer text-center">{{date('Y',time())}}</div>
+        @endif
     </div>
 
     <!-- Scripts -->

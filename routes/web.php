@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
-})->middleware('guest');
+    return view('home');
+})->middleware('guest')->name('home');
 	
 
 
