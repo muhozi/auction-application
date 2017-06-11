@@ -11,9 +11,9 @@
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('auth.login');
-})->middleware('guest');*/
+})->middleware('guest');
 	
 
 
