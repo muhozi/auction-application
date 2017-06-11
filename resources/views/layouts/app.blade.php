@@ -68,8 +68,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}" {!! (Route::currentRouteName() == 'home')?'class="up-button"':null !!}>Login</a></li>
-                            <li><a href="{{ route('register') }}" {!! (Route::currentRouteName() == 'home')?'class="up-button"':null !!}>Register</a></li>
+                            <li><a href="{{ route('login') }}" {!! (Route::currentRouteName() == 'home')?'class="up-button"':'' !!}>Login</a></li>
+                            <li><a href="{{ route('register') }}" {!! (Route::currentRouteName() == 'home')?'class="up-button"':'' !!}>Register</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
