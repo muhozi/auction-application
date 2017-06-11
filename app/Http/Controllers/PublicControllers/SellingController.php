@@ -3,7 +3,6 @@ namespace App\Http\Controllers\PublicControllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Validation\Rule;
 use Auth;
 use App\AuctionProducts;

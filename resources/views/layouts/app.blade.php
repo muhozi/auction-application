@@ -58,10 +58,19 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->firstname . "&nbsp;" .Auth::user()->lastname }} <span class="caret"></span>
+                                    {!! '<i class="ion-ios-contact-outline" style="font-size:20px;"></i> '. Auth::user()->firstname . "&nbsp;" .Auth::user()->lastname !!} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        {{--<a href="#">
+                                            settings
+                                        </a>--}}
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

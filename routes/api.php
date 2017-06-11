@@ -11,10 +11,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});*/
 Route::post('/', function (Request $request) {
     $cities = ['Kigali'=>['Nyarugenge'=>30,'Gasabo'=>40,'Kicukiro'=>13]];
     //return Response()->json($cities);
@@ -40,4 +36,9 @@ Route::group(['middleware'=>'auth:api'],function () {
     Route::get('buy','ApiControllers\MainController@bids');
     Route::get('bid/{id}','ApiControllers\MainController@bid');
     Route::get('auctions','ApiControllers\MainController@myauctions');
+    Route::get('/user', 'ApiControllers\MainController@user');
+    Route::post('/auctions/save', 'ApiControllers\MainController@saveAuction');
+    Route::post('/bid/{id}', 'ApiControllers\MainController@bidProduct');
+    Route::post('/logout', 'ApiControllers\MainController@logout');
+
 });

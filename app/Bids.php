@@ -7,7 +7,7 @@ use Auth;
 
 class Bids extends Model
 {
-    protected $table = "Bids";
+    protected $table = "bids";
 	public function hisBid($productId){
 		return $this->where('user_id',Auth::user()->id)->where('product_id',$productId)->get()->first();
 	}

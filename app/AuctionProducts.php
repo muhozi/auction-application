@@ -46,6 +46,9 @@ class AuctionProducts extends Model
     public function userBid(){
         return $this->hasMany('App\Bids','product_id','id')->where('user_id',Auth::user()->id)->get()->first();
     }
+    public function apiUserBid($id){
+        return $this->hasMany('App\Bids','product_id','id')->where('user_id',$id)->get()->first();
+    }
     public function bidsCount(){
         return $this->hasMany('App\Bids','product_id','id')->get()->count();
     }
@@ -68,6 +71,12 @@ class AuctionProducts extends Model
     }
     public function hasBidden(){
         if ($this->hasMany('App\Bids','product_id','id')->where('user_id',Auth::user()->id)->get()->count()==1) {
+            return true;
+        }
+        return false;
+    }
+    public function apiHasBidden($id){
+        if ($this->hasMany('App\Bids','product_id','id')->where('user_id',$id)->get()->count()==1) {
             return true;
         }
         return false;
