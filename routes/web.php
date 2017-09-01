@@ -11,12 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->middleware('guest')->name('home');
-	
-
-
+Route::get('/','HomeController@home')->middleware('guest')->name('home');
+Route::get('/getapp','HomeController@getApp');
 Auth::routes();
 Route::group(['middleware'=>'auth'],function(){
 	Route::group(['middleware'=>'regular','namespace'=>'PublicControllers'],function(){
@@ -29,7 +25,6 @@ Route::group(['middleware'=>'auth'],function(){
 		Route::get('/buy','BuyingController@buy')->name('buy');
 		Route::get('/buy/{id}','BuyingController@buyProduct')->name('buyProduct');
 		Route::post('/buy/{id}','BuyingController@bidProduct')->name('bidProduct');
-		
 	});
 	Route::group(['middleware'=>'admin','prefix'=>'admin','namespace'=>'AdminControllers'],function(){
 		Route::get('/','AdminController@index')->name('adminHome');
@@ -39,6 +34,3 @@ Route::group(['middleware'=>'auth'],function(){
 	});
 
 });
-Route::get('/test',function(){
-		print_r(session());
-	});
