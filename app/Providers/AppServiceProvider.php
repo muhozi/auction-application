@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use View;
-
+use Schema;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,8 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share("unproved",\App\AuctionProducts::where('approved',0)->get()->count());
-        View::share("noAuctions",\App\AuctionProducts::all()->count());
+        if(Schema::hasTable('auctionproducts')){
+            View::share("unproved",\App\AuctionProducts::where('approved',0)->get()->count());
+            View::share("noAuctions",\App\AuctionProducts::all()->count());
+        }
     }
 
     /**
