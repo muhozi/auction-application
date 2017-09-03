@@ -79,6 +79,7 @@ class MainController extends Controller
             $product->minimal_price = $request->price;
             $product->end_date_time = $request->endDateTime;
             $product->picture = $filename;
+            $product->approved = 1;
             $product->description = $request->description;
             $product->save();
             return Response()->json(['message'=>'Your auction details has been saved','status'=>'success']);

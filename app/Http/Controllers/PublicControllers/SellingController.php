@@ -52,6 +52,7 @@ class SellingController extends Controller
         $product->minimal_price = $request->input("minimalPrice");
         $product->end_date_time = $request->input("auctionEndTime")/*.' '.$request->input("auctionEndTime")*/;
         $product->picture = $filename;
+        $product->approved = 1;
         $product->description = $request->input("description");
         $product->save();
         return redirect()->back()->withMessage('Successfully product has put on Auction market');
