@@ -36,7 +36,7 @@ class SellingController extends Controller
         $data = $request->all();
         $validate = \Validator::make($data,[
             'productName'=>'required',
-            'minimalPrice'=>'required|numeric|min:500',
+            'minimalPrice'=>'required|numeric|min:200',
             'auctionEndTime'=>'required',
             'description'=>'required',
             'productPicture'=>['required','mimes:jpeg,bmp,png',Rule::dimensions()->minWidth(300)->minHeight(300)]
@@ -52,7 +52,7 @@ class SellingController extends Controller
         $product->minimal_price = $request->input("minimalPrice");
         $product->end_date_time = $request->input("auctionEndTime")/*.' '.$request->input("auctionEndTime")*/;
         $product->picture = $filename;
-        $product->approved = 1;
+        $product->approved = 0;
         $product->description = $request->input("description");
         $product->save();
         return redirect()->back()->withMessage('Successfully product has put on Auction market');

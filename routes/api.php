@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 |
 */
 Route::post('/','HomeController@register');
-Route::post('register','HomeController@register@registerB');
+Route::post('register','HomeController@registerB');
 Route::group(['middleware'=>'auth:api'],function () {
     Route::get('buy','ApiControllers\MainController@bids');
     Route::get('bid/{id}','ApiControllers\MainController@bid');

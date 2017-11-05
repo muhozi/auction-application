@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
 class HomeController extends Controller
 {
     public function getApp(){
@@ -22,7 +22,7 @@ class HomeController extends Controller
 	    return Response()->json(['status'=>"Ok"]);
 	}
 	public function registerB(Request $request){
-	    App\User::create([
+	    User::create([
 	            'firstname' => $request->input('firstname'),
 	            'lastname' => $request->input('lastname'),
 	            'email' => $request->input('email'),
