@@ -57,7 +57,7 @@ class MainController extends Controller
             $singleProductDetails['bid_price']=$product->isBidden()?'Rwf '.$product->bidPrice():$singleProductDetails['minimal_price'];
             $singleProductDetails['is_bidden']=$product->isBidden()?true:false;
             $singleProductDetails['is_ended']=$product->isEnded()?true:false;
-            $singleProductDetails['high_bid_user']=(count($product->maxBidDetails())>0)?$product->maxBidDetails()->user():false;
+            $singleProductDetails['high_bid_user']=($product->maxBidDetails())?$product->maxBidDetails()->user():false;
             $productsArray[]=$singleProductDetails;
         }
         return Response()->json($productsArray);
