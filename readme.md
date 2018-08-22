@@ -1,40 +1,84 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Auction
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+This is a simple web application and API for products tender. It is built using  [Laravel](https://laravel.com/)
 
-## About Laravel
+> Notice: This is for learning purpose, this project is not production ready.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+- It web based
+- REST API
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+It is built using laravel. Check out client android application **[Here](https://github.com/muhozi/Build-a-react-native-auction-android-app)**
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+## Requirements
 
-## Learning Laravel
+- PHP, Composer
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+- MySQL database
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
 
-## Contributing
+## Set up the application 🛠
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+### Clone the repo
 
-## Security Vulnerabilities
+`git clone git@github.com:muhozi/auction-application.git`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+### Install the dependencies
 
-## License
+This project uses laravel (php framework) and you need to have a php package manager installed which is [Composer](https://getcomposer.org/)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+`cd auction-backend`
+
+`composer install`
+
+### Set up project configurations
+
+#### Create configuration file (.env)
+
+Copy the contents of `.env.example` by running the following:
+
+`cp .env.examle .env`
+
+#### Generate application key
+
+Run the following command to generate the application key(for encryption and hashing)
+
+`php artisan key:generate`
+
+#### Set up Database
+
+Create database and replace DB connnection details section in `.env` 
+
+```sh
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_name
+DB_USERNAME=db_username
+DB_PASSWORD=db_password
+```
+
+#### Run migrations
+
+Run migration by running the following command:
+
+`php artisan migrate`
+
+#### Install passort(used for JWT)
+
+Run the following command to set up for requirements to use passport(Laravel JWT authentication package). This will generate encryption keys and OAuth clients(Personal and Password grant clients)
+
+`php artisan passport:install`
+
+## Run the application 🚀
+
+Run the application using the following command:
+
+`php artisan serve`
+
+## Authors
+
+[Emery Muhozi](https://twitter.com/EmeryMuhozi)
+
+## Licence
+
+[MIT License](http://opensource.org/licenses/mit-license.html).
