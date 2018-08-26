@@ -38,7 +38,7 @@ class AuthController extends Controller
 	            'password' => bcrypt($request->input('password')),
 	        ]);
         return response()->json([
-            'status' => 'ok',
+            'status' => 'success',
             'message' => 'You have successfully registered'
         ]);
     }
@@ -77,7 +77,7 @@ class AuthController extends Controller
         $token = $user->createToken($request->headers->get('user-agent'), []);
         $userDetails = $user->get(['firstname', 'lastname', 'email'])->first()->toArray();
         return response()->json([
-            'status' => 'ok',
+            'status' => 'success',
             'message' => 'You have successfully logged in',
             'user' => $userDetails,
             'access_token' => $token->accessToken,
@@ -95,7 +95,7 @@ class AuthController extends Controller
             $token->revoke();
         }
         return response()->json([
-            'status' => 'ok',
+            'status' => 'success',
             'message' => 'You have successfully logged out'
         ]);
     }

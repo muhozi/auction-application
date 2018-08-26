@@ -22,6 +22,6 @@ Route::group(['middleware'=>'auth:api'],function () {
     Route::get('/user', 'ApiControllers\MainController@user');
     Route::post('/auctions/save', 'ApiControllers\MainController@saveAuction');
     Route::post('/bid/{id}', 'ApiControllers\MainController@bidProduct');
-    Route::post('/logout', 'Api\AuthController@logout');
+    Route::post('/logout', 'ApiControllers\AuthController@logout');
 
 });
